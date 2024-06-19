@@ -29,23 +29,42 @@
 - Track order quantities, ensuring no negative values to maintain data integrity.
 - Monitor order dates to analyze sales trends and manage stock efficiently.
 
-## Prerequisites
-Before running the project, ensure you have the following:
-
-- at least Python 3.11.5 installed
-- Virtual environment tool 
 
 
-### Set up
-- python3 -m venv .venv     (Create a virtual environment)
-- source .venv/bin/activate  (Activate the virtual environment on Linux)
 
-### How to run
-- In order to set up a database on your psql terminal:
-    - CREATE DATABASE <database-name>
-    - \c <database-name>
+### Instructions To Run The Program: 
+1. prerequisites :  
+    - Open Terminal
+    - Set the working directory in you computer: using below command in terminal
+    ```python
+        cd desktop/mini_personal_db/src
+    ```
 
-- Navigate to the src folder (cd src).
-- Run the project using python terminal (python3 -m mini_project).
+    - Run the below command in terminal to switch to postgres, and to create the database and add data into tables to use the program. 
+
+    ```sql
+    cd src/mini_project.py/sql_files
+    psql -U postgres
+    \i product.sql
+    \i supplier.sql
+    \i order.sql
+    \i example_queries.sql
+    \q
+    ```  
+    - Creating the virtual Environment and to install psycopg3 follow the instructions 
+    ```python
+        cd .. 
+        cd .. 
+        python3 -m venv .venv --prompt mini_projectDB
+        source .venv/bin/activate
+        pip install psycopg3
+    ```     
+
+2. To Run the main program : 
+    ```python 
+        cd ..
+        python3 -m src.mini_project
+    ```
+
 
 
