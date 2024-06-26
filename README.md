@@ -43,11 +43,12 @@
     - Run the below command in terminal to switch to postgres, and to create the database and add data into tables to use the program. 
 
     ```sql
-    cd src/mini_project.py/sql_files
+    cd db/sql_files
     psql -U postgres
+    \i create_tables.sql
+    \i order.sql
     \i product.sql
     \i supplier.sql
-    \i order.sql
     \i example_queries.sql
     \q
     ```  
@@ -57,7 +58,7 @@
         cd .. 
         python3 -m venv .venv --prompt mini_projectDB
         source .venv/bin/activate
-        pip install psycopg3
+        pip install -r requirements.txt
     ```     
 
 2. To Run the main program : 

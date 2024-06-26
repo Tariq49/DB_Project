@@ -1,22 +1,21 @@
 import psycopg as pg
 
 
-
-
 db_params = {
-            "dbname": "i_v_inventory",
-            "user":"postgres",
-            "password":"postgres",
-            "host":"localhost",
-            "port":"5432",
+    "dbname": "i_v_inventory",
+    "user": "postgres",
+    "password": "postgres",
+    "host": "localhost",
+    "port": "5432",
 }
-        
+
 CONN = pg.connect(**db_params)
 
-cur= CONN.cursor()
+cur = CONN.cursor()
 
-with open('mini_project.py', 'r') as python_file:
+with open("mini_project.py", "r") as python_file:
     file_content = python_file.read()
+
 
 def query_data():
     cur.execute("SELECT * FROM supplier_table")
@@ -37,7 +36,7 @@ def query_data():
     for order in orders:
         print(order)
 
-    # SQL query to find the most expensive product
+        # SQL query to find the most expensive product
         query = """
             SELECT 
                 product_name,
@@ -51,13 +50,13 @@ def query_data():
             ORDER BY unit_price DESC
             LIMIT 1;
         """
-        
+
         # Execute the query
         cur.execute(query)
 
         # Fetch the result
         result = cur.fetchone()
-        
+
         # Print the result
         if result:
             print("Most Expensive Product:")
@@ -71,12 +70,10 @@ def query_data():
         else:
             print("No products found.")
 
+
 # Run the functions
 query_data()
 
 # Close the cursor and connection
 cur.close()
 CONN.close()
-
-  
-
