@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Product Details{% endblock %}
+
+{% block content %}
+<h2>Product Details</h2>
+<p><strong>ID:</strong> {{ product.product_id }}</p>
+<p><strong>Name:</strong> {{ product.product_name }}</p>
+<p><strong>Description:</strong> {{ product.description }}</p>
+<p><strong>Supplier:</strong> {{ product.supplier_id.supplier_name }}</p>
+<p><strong>Price:</strong> {{ product.unit_price }}</p>
+<p><strong>Stock:</strong> {{ product.quantity_in_stock }}</p>
+<p><strong>Reorder Level:</strong> {{ product.reorder_level }}</p>
+<p><strong>Expiry Date:</strong> {{ product.expiry_date }}</p>
+<h3>Tags</h3>
+<ul>
+    {% for tag in product.tags.all %}
+    <li>{{ tag.name }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'product-urls:product_list' %}">Back to Products</a>
+{% endblock %}

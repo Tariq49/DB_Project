@@ -1,7 +1,7 @@
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 DEFAULT_APPS = [
 
@@ -14,7 +14,12 @@ DEFAULT_APPS = [
 ]
 
 CUSTOM_APPS = [
-
+        "apps.order",
+        "apps.product",
+        "apps.supplier",
+        "apps.users",
+        "apps.core",
+        "apps.home",
     ]
 
 THIRD_PARTY_APPS = [
@@ -88,8 +93,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = 'users.TaskOwner'

@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}IV Inventory{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>IV Inventory Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'order-urls:order_list' %}">Orders</a></li>
+                <li><a href="{% url 'supplier-urls:supplier_list' %}">Suppliers</a></li>
+                <li><a href="{% url 'product-urls:product_list' %}">Products</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; Tariq Mir i.v. Inventory Management System</p>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

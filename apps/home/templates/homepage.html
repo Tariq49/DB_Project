@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to my IV Inventory Management System</h1>
+         <nav>
+            <ul>
+                <li><a href="{% url 'product-urls:product_list' %}">Products</a></li>
+                <li><a href="{% url 'order-urls:order_list' %}">Orders</a></li>
+                <li><a href="{% url 'supplier-urls:supplier_list' %}">Suppliers</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Mission Statement</h2>
+            <p>To efficiently manage and optimize the administration of <strong>micronutrients</strong> through a robust <strong>IV inventory system</strong>,<br />
+                ensuring timely access to high-quality products while fostering partnerships with reliable suppliers.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Tariq Mir i.v. Inventory Management System</p>
+    </footer>
+</body>
+</html>
